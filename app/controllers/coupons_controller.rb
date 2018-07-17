@@ -8,7 +8,7 @@ class CouponsController < ApplicationController
 
   def create
     @coupon = Coupon.new
-    @coupon[:coupon_code] = params[:coupon][:coupon_code]
+    @coupon[:coupon_code] = coupon_code_params
     @coupon[:store] = params[:coupon][:store]
 
     if @coupon.save
@@ -22,13 +22,13 @@ class CouponsController < ApplicationController
     @coupon = Coupon.find(params[:id])
   end
 
-  #   private
+    private
   #   # Using a private method to encapsulate the permissible parameters is
   #   # a good pattern since you'll be able to reuse the same permit
   #
-  #   def coupon_params
-  #     params.require(:coupon).permit(:coupon_code, :store)
-  #   end
+    def coupon_code_params
+      params.require(:coupon).permit(:coupon, :coupon_code)
+    end
   #
 
 end
