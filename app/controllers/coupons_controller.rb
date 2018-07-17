@@ -9,7 +9,7 @@ class CouponsController < ApplicationController
   def create
     @coupon = Coupon.new
     @coupon[:coupon_code] = coupon_code_params
-    @coupon[:store] = params[:coupon][:store]
+    @coupon[:store] = coupon_store_params
 
     if @coupon.save
       redirect_to coupon_path(@coupon)
@@ -28,6 +28,10 @@ class CouponsController < ApplicationController
   #
     def coupon_code_params
       params.require(:coupon).permit(:coupon, :coupon_code)
+    end
+
+    def coupon_store_params
+      params.require(:coupon).permit(:coupon, :store)
     end
   #
 
