@@ -3,13 +3,13 @@
 <%= form_tag coupons_path do %>
 
     <label>Coupon Code: </label><br>
-    <%= text_field_tag 'coupon[coupon_code]', :placeholder => 'Enter coupon code here' %>
+    <%= text_field_tag 'coupon[coupon_code]', nil, :placeholder => 'Enter coupon code here' %>
 
     <br><br>
 
     <label>Store: </label><br>
-    <%= text_field_tag 'coupon[store]', :placeholder => 'Enter store here' %>
-    
+    <%= text_field_tag 'coupon[store]', nil,  :placeholder => 'Enter store here' %>
+
     <br><br>
 
     <%= submit_tag "Submit Coupon" %>
